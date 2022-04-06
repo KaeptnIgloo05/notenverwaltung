@@ -1,7 +1,7 @@
 # notenverwaltung
 Informatikprojekt, Klasse 10 Notenverwaltungssoftware (CLI) mit Datenbank
 
-TODO:
+### TODO:
 - Verbindung mit Datenbank
 - Class für schüler beenden
 - Admin/Lehrer System einbauen
