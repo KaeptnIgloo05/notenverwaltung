@@ -9,3 +9,4 @@ Informatikprojekt, Klasse 10 Notenverwaltungssoftware (CLI) mit Datenbank
   - Admins können Schüler & Lehrer Zuweisen
 - Verschlüsselung
 - (Anwesenheitsliste?)
+- Farbe im Terminal
