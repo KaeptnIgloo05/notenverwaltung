@@ -14,16 +14,15 @@ class Student:
 """
 
 
-def create_student(surname, name, students_class, class_teacher):
-    global con
+def create_student(lname, fname, students_class, class_teacher):
     try:
         con = sqlite3.connect('marking_system.db')  # connecting to database
         cur = con.cursor()  # creating cursor
 
-        cur.execute(f'''INSERT INTO students(surname, name, class, teacher) VALUES
-        ("{surname}", "{name}", "{students_class}",  "{class_teacher}")''')  # adding new student to overview table
+        cur.execute("INSERT INTO students(surname, name, class, teacher) VALUES (?,?,?,?)",
+                (lname, fname, students_class, class_teacher))  # adding new student to overview table
 
-        student_id = cur.execute(f"SELECT id FROM students WHERE surname = {surname} AND name = {name}").fetchone()  # getting new students id
+        student_id = cur.execute(f"SELECT id FROM students WHERE surname = {lname} AND name = {fname}").fetchone()  # getting new students id
         cur.execute(f"CREATE TABLE {student_id} (mark CHAR, subject-id INTEGER, exam boolean")  # table for new student
 
     except Error as e:
@@ -48,4 +47,4 @@ cur.execute('''CREATE TABLE students
 # con.commit()
 # con.close()
 
-create_student('Doe', 'John', '7B', 'Jane Doe')
+create_student("Doe", "John", "7B", "Jane Doe")
